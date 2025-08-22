@@ -1,9 +1,12 @@
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
 import java.awt.Dimension;
+import java.awt.Color;
+import java.awt.Font;
 
 public class Calculadora{
     public static void main(String args[]){
@@ -26,7 +29,10 @@ public class Calculadora{
         frame.add(visor, "North");
 
         //Criar painel de layout.
-        JPanel painel = new JPanel(new GridLayout(4, 4, 5, 5));
+        JPanel painel = new JPanel(new GridLayout(4, 4, 2, 2));
+        
+        //Definir margens do painel.
+        painel.setBorder(BorderFactory.createEmptyBorder(4, 2, 2,2));
 
         //Criação de botões.
         JButton buttonZero = new JButton("0");
@@ -35,7 +41,7 @@ public class Calculadora{
         JButton buttonThree = new JButton("3");
         JButton buttonFour = new JButton("4");
         JButton buttonFive = new JButton("5");    
-        JButton buttonSix = new JButton("6");
+        JButton buttonSix = new JButton("5");
         JButton buttonSeven = new JButton("7");
         JButton buttonEight = new JButton("8");
         JButton buttonNine = new JButton("9");
@@ -45,6 +51,24 @@ public class Calculadora{
         JButton buttonSum = new JButton("+");
         JButton buttonEqual = new JButton("=");
         JButton buttonClear = new JButton("C");
+
+        //Personalizar fonte dos botões.
+        buttonZero.setFont(new Font("arial", 1, 26));
+        buttonOne.setFont(new Font("arial", 1, 26));
+        buttonTwo.setFont(new Font("arial", 1, 26));
+        buttonThree.setFont(new Font("arial", 1, 26));
+        buttonFour.setFont(new Font("arial", 1, 26));
+        buttonFive.setFont(new Font("arial", 1, 26));
+        buttonSix.setFont(new Font("arial", 1, 26));
+        buttonSeven.setFont(new Font("arial", 1, 26));
+        buttonEight.setFont(new Font("arial", 1, 26));
+        buttonNine.setFont(new Font("arial", 1, 26));
+        buttonMultiplicator.setFont(new Font("arial", 1, 26));
+        buttonDivisor.setFont(new Font("arial", 1, 26));
+        buttonMinus.setFont(new Font("arial", 1, 26));
+        buttonSum.setFont(new Font("arial", 1, 26));
+        buttonClear.setFont(new Font("arial", 1, 26));
+        buttonEqual.setFont(new Font("arial", 1, 26));
 
         //Adicionar botões no painel de layout.
         painel.add(buttonSeven);
@@ -62,10 +86,18 @@ public class Calculadora{
         painel.add(buttonThree);
         painel.add(buttonMinus);
 
-        painel.add(buttonZero);
         painel.add(buttonClear);
-        painel.add(buttonSum);
+        painel.add(buttonZero);
         painel.add(buttonEqual);
+        painel.add(buttonSum);
+
+        //Personalizar cor dos botões.
+        buttonClear.setBackground(Color.RED);
+        buttonEqual.setBackground(Color.GREEN);
+        buttonSum.setBackground(Color.GRAY);
+        buttonDivisor.setBackground(Color.GRAY);
+        buttonMultiplicator.setBackground(Color.GRAY);
+        buttonMinus.setBackground(Color.GRAY);
 
         //Adicionar painel na janela.
         frame.add(painel, "Center");
