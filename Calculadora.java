@@ -7,6 +7,8 @@ import java.awt.GridLayout;
 import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Calculadora{
     public static void main(String args[]){
@@ -29,7 +31,7 @@ public class Calculadora{
         frame.add(visor, "North");
 
         //Criar painel de layout.
-        JPanel painel = new JPanel(new GridLayout(4, 4, 2, 2));
+        JPanel painel = new JPanel(new GridLayout(5, 4, 2, 2));
         
         //Definir margens do painel.
         painel.setBorder(BorderFactory.createEmptyBorder(4, 2, 2,2));
@@ -41,7 +43,7 @@ public class Calculadora{
         JButton buttonThree = new JButton("3");
         JButton buttonFour = new JButton("4");
         JButton buttonFive = new JButton("5");    
-        JButton buttonSix = new JButton("5");
+        JButton buttonSix = new JButton("6");
         JButton buttonSeven = new JButton("7");
         JButton buttonEight = new JButton("8");
         JButton buttonNine = new JButton("9");
@@ -51,6 +53,31 @@ public class Calculadora{
         JButton buttonSum = new JButton("+");
         JButton buttonEqual = new JButton("=");
         JButton buttonClear = new JButton("C");
+        JButton buttonPercentage = new JButton("%");
+        JButton buttonParenthesis = new JButton("()");
+        JButton buttonNegative = new JButton("+/-");
+        JButton buttonDot = new JButton(".");
+        
+        //Criar evento de clique.
+        ActionListener al = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt){
+                JButton botaoClicado = (JButton) evt.getSource();
+                visor.setText(visor.getText() + botaoClicado.getText());
+            }
+        };
+
+        //Adicionar o evento de clique aos botões.
+        buttonZero.addActionListener(al);
+        buttonOne.addActionListener(al);
+        buttonTwo.addActionListener(al);
+        buttonThree.addActionListener(al);
+        buttonFour.addActionListener(al);
+        buttonFive.addActionListener(al);
+        buttonSix.addActionListener(al);
+        buttonSeven.addActionListener(al);
+        buttonEight.addActionListener(al);
+        buttonNine.addActionListener(al);
 
         //Personalizar fonte dos botões.
         buttonZero.setFont(new Font("arial", 1, 26));
@@ -71,6 +98,11 @@ public class Calculadora{
         buttonEqual.setFont(new Font("arial", 1, 26));
 
         //Adicionar botões no painel de layout.
+        painel.add(buttonClear);
+        painel.add(buttonParenthesis);
+        painel.add(buttonPercentage);
+        painel.add(buttonDivisor);
+
         painel.add(buttonSeven);
         painel.add(buttonEight);
         painel.add(buttonNine);
@@ -79,17 +111,17 @@ public class Calculadora{
         painel.add(buttonFour);
         painel.add(buttonFive);
         painel.add(buttonSix);
-        painel.add(buttonDivisor);
+        painel.add(buttonMinus);
 
         painel.add(buttonOne);
         painel.add(buttonTwo);
         painel.add(buttonThree);
-        painel.add(buttonMinus);
-
-        painel.add(buttonClear);
-        painel.add(buttonZero);
-        painel.add(buttonEqual);
         painel.add(buttonSum);
+
+        painel.add(buttonNegative);
+        painel.add(buttonZero);
+        painel.add(buttonDot);
+        painel.add(buttonEqual);
 
         //Personalizar cor dos botões.
         buttonClear.setBackground(Color.RED);
