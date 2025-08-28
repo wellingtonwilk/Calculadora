@@ -1,2 +1,2 @@
 # Calculadora
-A four basics operation calculator.
+A basics operation calculator.
